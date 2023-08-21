@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formulary } from "../../components/Formulary";
 import { Input } from "../../components/Input";
 import { Header } from "../../components/Header";
@@ -41,7 +41,7 @@ export const LoginPage = ({ setUser }) => {
   };
   return (
     <>
-      <Header />
+      <Header hasButton={false} />
       <div className="container">
         <Formulary onSubmit={handleSubmit(submit)}>
           <div className={styles.form__container}>
@@ -62,17 +62,15 @@ export const LoginPage = ({ setUser }) => {
               {...register("password")}
               error={errors.password}
             />
-            <button type="submit">Entrar</button>
-            <p>Ainda não possui uma conta?</p>
-            <button
-              className="button--default"
-              type="button"
-              onClick={() => {
-                navigate("/register");
-              }}
-            >
-              Cadastre-se
+            <button className={styles.login__submit_button} type="submit">
+              Entrar
             </button>
+            <p className={styles.login__form_paragraph}>
+              Ainda não possui uma conta?
+            </p>
+            <Link className={styles.register__button} to={"/register"}>
+              Cadastre-se
+            </Link>
           </div>
         </Formulary>
       </div>

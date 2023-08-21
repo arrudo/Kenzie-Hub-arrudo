@@ -3,10 +3,13 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  label {
+    color: var(--color-gray-0);
+  }
 }
 
 .select__error {
-  color: red;
+  color: var(--color-gray-1);
   position: absolute;
   top: 48px;
   font-size: 10px;

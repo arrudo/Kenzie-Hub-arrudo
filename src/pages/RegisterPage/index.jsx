@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formulary } from "../../components/Formulary";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
@@ -42,15 +42,10 @@ export const RegisterPage = () => {
   };
   return (
     <>
-      <Header>
-        <button
-          className={styles.register__back_button}
-          onClick={() => {
-            navigate("/");
-          }}
-        >
+      <Header hasButton={true}>
+        <Link className={styles.back__button} to={"/"}>
           Voltar
-        </button>
+        </Link>
       </Header>
       <div className="container">
         <Formulary onSubmit={handleSubmit(submit)}>
@@ -107,7 +102,7 @@ export const RegisterPage = () => {
               {...register("course_module")}
               error={errors.course_module}
             />
-            <button className={styles.register__submit_button}>
+            <button type="submit" className={styles.register__submit_button}>
               Cadastre-se
             </button>
           </div>
