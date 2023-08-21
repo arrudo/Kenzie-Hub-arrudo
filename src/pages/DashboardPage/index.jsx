@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
+import styles from './style.module.scss'
 
 export const DashboardPage = ({ user, setUser }) => {
   const navigate = useNavigate();
@@ -10,15 +11,15 @@ export const DashboardPage = ({ user, setUser }) => {
   };
   return (
     <>
-      <div className="container">
-        <Header>
-          <button onClick={logout}>Sair</button>
+      <div className={styles.dashboard__container}>
+        <Header inDashboard={true} hasButton={true}>
+          <button className={styles.logout__button} onClick={logout}>Sair</button>
         </Header>
-        <section>
+        <section className={styles.main__section}>
           <h1>Olá, {user.name}</h1>
-          <p>{user.course_module}</p>
+          <p className={styles.user__course}>{user.course_module}</p>
         </section>
-        <section>
+        <section className={styles.second_section}>
           <h1>Que pena! Estamos em desenvolvimento :(</h1>
           <p>
             Nossa aplicação está em desenvolvimento, em breve teremos novidades

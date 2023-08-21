@@ -1,10 +1,10 @@
 import Logo from "../../assets/Logo.svg";
 import styles from "./style.module.scss";
 
-export const Header = ({ children, hasButton }) => {
+export const Header = ({ children, hasButton, inDashboard }) => {
   return (
     <header>
-      <div className="container">
+      <div className={inDashboard ? styles.dashboard : 'container'}>
         <div
           className={`${styles.header__container} ${
             hasButton ? styles.header__container_withButton : ""
