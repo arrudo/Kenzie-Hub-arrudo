@@ -1,0 +1,21 @@
+.form__container {
+  width: 510px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  input {
+    height: 20px;
+  }
+}
+.form__container {
+  background-color: var(--color-gray-3);
+  padding: 42px 22px;
+  border-radius: var(--radius-3);
+}
+
+@media (max-width:700px) {
+    .form__container{
+        width: 83%;
+        margin: auto;
+    }
+}
