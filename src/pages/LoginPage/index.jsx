@@ -40,7 +40,7 @@ export const LoginPage = ({ setUser }) => {
     loginUser(formData);
   };
   return (
-    <>
+    <div className={styles.login_page__container}>
       <Header hasButton={false} />
       <div className="container">
         <Formulary onSubmit={handleSubmit(submit)}>
@@ -74,6 +74,6 @@ export const LoginPage = ({ setUser }) => {
           </div>
         </Formulary>
       </div>
-    </>
+    </div>
   );
 };

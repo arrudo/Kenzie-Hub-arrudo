@@ -14,3 +14,6 @@ input:focus {
 input:focus::placeholder {
   color: var(--color-gray-0);
 }
+input::placeholder{
+  font-size: 0.9687rem;
+}
