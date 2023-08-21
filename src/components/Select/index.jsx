@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 export const Select = forwardRef(({ error, ...rest }, ref) => {
   return (
     <div className={styles.select__container}>
-        <label >Selecionar módulo</label>
+      <label>Selecionar módulo</label>
       <select {...rest} ref={ref} name="course_module">
         <option value="">Selecione seu Módulo</option>
         <option value="Primeiro módulo (Introdução ao Frontend)">

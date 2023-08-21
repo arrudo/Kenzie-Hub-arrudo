@@ -12,13 +12,25 @@
   padding: 42px 22px;
   border-radius: var(--radius-3);
 }
-.register__back_button{
-    margin-left: 310px;
-    margin-right: 30px;
+.register__back_button {
+  margin-left: 310px;
+  margin-right: 30px;
 }
-@media (max-width:700px) {
-    .form__container{
-        width: 83%;
-        margin: auto;
-    }
+.register__submit_button {
+  height: 60px;
+  cursor: pointer;
+  border: none;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-2);
+  color: var(--color-gray-0);
+  background-color: var(--color-gray-1);
+  padding: 20px;
+  border-radius: var(--radius-1);
+  transition: var(--animation-duration);
+}
+@media (max-width: 700px) {
+  .form__container {
+    width: 83%;
+    margin: auto;
+  }
 }

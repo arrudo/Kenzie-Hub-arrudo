@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "../../formScheme";
 import styles from "./style.module.scss";
 import { api } from "../../services/api";
+import { toast } from "react-hot-toast";
 
 export const LoginPage = ({ setUser }) => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export const LoginPage = ({ setUser }) => {
       localStorage.setItem("@TOKEN", data.token);
       navigate("/dashboard");
     } catch (error) {
-      toast.error(error.response.data.message, {
+      toast.error("Ops! Algo deu errado", {
         style: {
           borderRadius: "6px",
           background: "#333",
@@ -42,10 +43,9 @@ export const LoginPage = ({ setUser }) => {
     <>
       <Header />
       <div className="container">
-        
         <Formulary onSubmit={handleSubmit(submit)}>
           <div className={styles.form__container}>
-          <h1>Login</h1>
+            <h1>Login</h1>
             <Input
               id={"userEmail"}
               label={"Email"}
@@ -65,7 +65,7 @@ export const LoginPage = ({ setUser }) => {
             <button type="submit">Entrar</button>
             <p>Ainda não possui uma conta?</p>
             <button
-            className="button--default"
+              className="button--default"
               type="button"
               onClick={() => {
                 navigate("/register");

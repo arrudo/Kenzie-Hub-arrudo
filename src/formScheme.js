@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const formSchema = z
+export const RegisterSchema = z
   .object({
     name: z.string().nonempty("Campo obrigatório"),
 

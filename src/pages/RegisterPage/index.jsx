@@ -5,7 +5,7 @@ import { Input } from "../../components/Input";
 import styles from "./style.module.scss";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { formSchema } from "../../formScheme";
+import { RegisterSchema } from "../../formScheme";
 import toast, { Toaster } from "react-hot-toast";
 import { Select } from "../../components/Select";
 import { api } from "../../services/api";
@@ -17,25 +17,23 @@ export const RegisterPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(RegisterSchema),
   });
 
   const registerUser = async (formData) => {
     try {
       const { data } = await api.post("/users", formData);
       console.log(data);
-      toast.success('Conta criada com sucesso!')
-      navigate('/')
+      toast.success("Conta criada com sucesso!");
+      navigate("/");
     } catch (error) {
-      toast.error(error.response.data.message,
-  {
-    style: {
-      borderRadius: '6px',
-      background: '#333',
-      color: '#fff',
-    },
-  }
-);
+      toast.error(error.response.data.message, {
+        style: {
+          borderRadius: "6px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
     }
   };
 
@@ -46,7 +44,7 @@ export const RegisterPage = () => {
     <>
       <Header>
         <button
-        className={styles.register__back_button}
+          className={styles.register__back_button}
           onClick={() => {
             navigate("/");
           }}
@@ -110,7 +108,7 @@ export const RegisterPage = () => {
               error={errors.course_module}
             />
             <button className={styles.register__submit_button}>
-              Cadastrar
+              Cadastre-se
             </button>
           </div>
         </Formulary>

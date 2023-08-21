@@ -1,13 +1,13 @@
-.select__container{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.select__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.select__error{
-    color: red;
-    position: absolute;
-    top: 43px;
-    font-size: 10px;
+.select__error {
+  color: red;
+  position: absolute;
+  top: 48px;
+  font-size: 10px;
 }
