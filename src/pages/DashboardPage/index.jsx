@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
-import styles from './style.module.scss'
+import styles from "./style.module.scss";
 
 export const DashboardPage = ({ user, setUser }) => {
   const navigate = useNavigate();
@@ -13,7 +13,9 @@ export const DashboardPage = ({ user, setUser }) => {
     <>
       <div className={styles.dashboard__container}>
         <Header inDashboard={true} hasButton={true}>
-          <button className={styles.logout__button} onClick={logout}>Sair</button>
+          <button className={styles.logout__button} onClick={logout}>
+            Sair
+          </button>
         </Header>
         <section className={styles.main__section}>
           <h1>Olá, {user.name}</h1>

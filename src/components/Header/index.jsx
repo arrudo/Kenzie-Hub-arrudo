@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 export const Header = ({ children, hasButton, inDashboard }) => {
   return (
     <header>
-      <div className={inDashboard ? styles.dashboard : 'container'}>
+      <div className={inDashboard ? styles.dashboard : "container"}>
         <div
           className={`${styles.header__container} ${
             hasButton ? styles.header__container_withButton : ""
