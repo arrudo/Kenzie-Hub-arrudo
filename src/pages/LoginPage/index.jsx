@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "../../formScheme";
 import styles from "./style.module.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/UserContext";
 
 export const LoginPage = () => {
@@ -56,6 +56,11 @@ export const LoginPage = () => {
               Cadastre-se
             </Link>
           </div>
+          <button
+            onClick={() => {
+              console.log(user);
+            }}
+          ></button>
         </Formulary>
       </div>
     </div>

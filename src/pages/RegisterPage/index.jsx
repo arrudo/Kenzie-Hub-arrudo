@@ -22,7 +22,7 @@ export const RegisterPage = () => {
     resolver: zodResolver(RegisterSchema),
   });
 
-  const {registerUser} = useContext(UserContext)
+  const { registerUser } = useContext(UserContext);
 
   const submit = (formData) => {
     registerUser(formData);

@@ -14,8 +14,8 @@ export const UserProvider = ({ children }) => {
   const loginUser = async (formData) => {
     try {
       const { data } = await api.post("/sessions", formData);
-      setUser(data.user);
       localStorage.setItem("@TOKEN", data.token);
+      setUser(data.user);
       navigate("/dashboard");
     } catch (error) {
       toast.error("Ops! Algo deu errado", {
@@ -45,7 +45,7 @@ export const UserProvider = ({ children }) => {
   };
 
   const logout = () => {
-    setUser({});
+    setUser(null);
     localStorage.removeItem("@TOKEN");
     navigate("/");
   };
@@ -64,6 +64,7 @@ export const UserProvider = ({ children }) => {
           setUser(data);
         } catch (error) {
           console.log(error);
+          setUser({});
           localStorage.removeItem("@TOKEN");
         }
       }
