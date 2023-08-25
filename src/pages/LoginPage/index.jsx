@@ -56,11 +56,7 @@ export const LoginPage = () => {
               Cadastre-se
             </Link>
           </div>
-          <button
-            onClick={() => {
-              console.log(user);
-            }}
-          ></button>
+          
         </Formulary>
       </div>
     </div>
