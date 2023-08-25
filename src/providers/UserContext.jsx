@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 
-export const UserContext = createContext({});
+export const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -62,9 +62,10 @@ export const UserProvider = ({ children }) => {
             },
           });
           setUser(data);
+          navigate("/dashboard");
         } catch (error) {
           console.log(error);
-          setUser({});
+          setUser(null);
           localStorage.removeItem("@TOKEN");
         }
       }

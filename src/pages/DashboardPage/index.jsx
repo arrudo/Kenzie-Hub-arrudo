@@ -19,7 +19,9 @@ export const DashboardPage = () => {
       </section>
       <section className={styles.second_section}>
         <h1>Que pena! Estamos em desenvolvimento :(</h1>
-        <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+        <p>
+          Nossa aplicação está em desenvolvimento, em breve teremos novidades
+        </p>
       </section>
     </div>
   );

@@ -56,7 +56,6 @@ export const LoginPage = () => {
               Cadastre-se
             </Link>
           </div>
-          
         </Formulary>
       </div>
     </div>
