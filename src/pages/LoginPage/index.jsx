@@ -6,16 +6,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "../../formScheme";
 import styles from "./style.module.scss";
-import { api } from "../../services/api";
-import { toast } from "react-hot-toast";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
 
-
-
-
 export const LoginPage = () => {
-  
   const {
     register,
     handleSubmit,
@@ -24,7 +18,7 @@ export const LoginPage = () => {
     resolver: zodResolver(LoginSchema),
   });
 
-  const {loginUser} = useContext(UserContext)
+  const { loginUser } = useContext(UserContext);
 
   const submit = (formData) => {
     loginUser(formData);

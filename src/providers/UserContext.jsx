@@ -50,28 +50,26 @@ export const UserProvider = ({ children }) => {
     navigate("/");
   };
 
-  
-    useEffect(() => {
-      const loadUser = async () => {
-        const token = localStorage.getItem("@TOKEN");
+  useEffect(() => {
+    const loadUser = async () => {
+      const token = localStorage.getItem("@TOKEN");
 
-        if (token) {
-            try {
-                const { data } = await api.get("/profile", {
-                  headers: {
-                    Authorization: `Bearer ${token}`,
-                  },
-                });
-                setUser(data);
-              } catch (error) {
-                console.log(error);
-                localStorage.removeItem("@TOKEN");
-              }
+      if (token) {
+        try {
+          const { data } = await api.get("/profile", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setUser(data);
+        } catch (error) {
+          console.log(error);
+          localStorage.removeItem("@TOKEN");
         }
-      };
-      loadUser();
-    }, []);
-  
+      }
+    };
+    loadUser();
+  }, []);
 
   return (
     <UserContext.Provider
