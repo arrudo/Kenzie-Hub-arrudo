@@ -8,9 +8,14 @@ import { LoginSchema } from "../../formScheme";
 import styles from "./style.module.scss";
 import { api } from "../../services/api";
 import { toast } from "react-hot-toast";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
-export const LoginPage = ({ setUser }) => {
-  const navigate = useNavigate();
+
+
+
+export const LoginPage = () => {
+  
   const {
     register,
     handleSubmit,
@@ -19,22 +24,7 @@ export const LoginPage = ({ setUser }) => {
     resolver: zodResolver(LoginSchema),
   });
 
-  const loginUser = async (formData) => {
-    try {
-      const { data } = await api.post("/sessions", formData);
-      setUser(data.user);
-      localStorage.setItem("@TOKEN", data.token);
-      navigate("/dashboard");
-    } catch (error) {
-      toast.error("Ops! Algo deu errado", {
-        style: {
-          borderRadius: "6px",
-          background: "#333",
-          color: "#fff",
-        },
-      });
-    }
-  };
+  const {loginUser} = useContext(UserContext)
 
   const submit = (formData) => {
     loginUser(formData);

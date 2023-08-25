@@ -9,6 +9,8 @@ import { RegisterSchema } from "../../formScheme";
 import toast, { Toaster } from "react-hot-toast";
 import { Select } from "../../components/Select";
 import { api } from "../../services/api";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
 export const RegisterPage = () => {
   const navigate = useNavigate();
@@ -20,22 +22,7 @@ export const RegisterPage = () => {
     resolver: zodResolver(RegisterSchema),
   });
 
-  const registerUser = async (formData) => {
-    try {
-      const { data } = await api.post("/users", formData);
-      console.log(data);
-      toast.success("Conta criada com sucesso!");
-      navigate("/");
-    } catch (error) {
-      toast.error(error.response.data.message, {
-        style: {
-          borderRadius: "6px",
-          background: "#333",
-          color: "#fff",
-        },
-      });
-    }
-  };
+  const {registerUser} = useContext(UserContext)
 
   const submit = (formData) => {
     registerUser(formData);
