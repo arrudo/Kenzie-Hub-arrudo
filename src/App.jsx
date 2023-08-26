@@ -3,11 +3,12 @@ import { RoutesMain } from "./routes/RoutesMain";
 import "./styles/index.scss";
 import { useContext } from "react";
 import { UserContext } from "./providers/UserContext";
+import { LoadingWheel } from "./components/LoadingWheel";
 function App() {
   const { loading } = useContext(UserContext);
   return (
     <>
-      {loading ? <h1>Carregando...</h1> : <RoutesMain />}
+      {loading ? <LoadingWheel /> : <RoutesMain />}
 
       <Toaster position="top-right" reverseOrder={false} />
     </>
