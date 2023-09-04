@@ -13,6 +13,8 @@ export const DashboardPage = () => {
   const { isTechModalOpen, setIsTechModalOpen, isEditModalOpen } =
     useContext(TechContext);
 
+  const userTechs = user.techs;
+
   return (
     <div className={styles.dashboard__container}>
       <Header inDashboard={true} hasButton={true}>
@@ -34,7 +36,7 @@ export const DashboardPage = () => {
             +
           </button>
         </div>
-        {techList.length > 0 ? <TechList /> : null}
+        {techList.length > 0 ? <TechList userTechs={userTechs} /> : null}
       </section>
       {isTechModalOpen ? <CreateTechModal /> : null}
       {isEditModalOpen ? <EditTechModal /> : null}

@@ -38,7 +38,7 @@ export const UserProvider = ({ children }) => {
           borderRadius: "6px",
           background: "#333",
           color: "#fff",
-        }
+        },
       });
       navigate("/");
     } catch (error) {
