@@ -13,8 +13,6 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [techList, setTechList] = useState([]);
 
-  
-
   const loginUser = async (formData) => {
     try {
       const { data } = await api.post("/sessions", formData);
@@ -80,11 +78,18 @@ export const UserProvider = ({ children }) => {
     loadUser();
   }, []);
 
-  
-
   return (
     <UserContext.Provider
-      value={{ user, setUser, loginUser, registerUser, logout, loading, techList, setTechList }}
+      value={{
+        user,
+        setUser,
+        loginUser,
+        registerUser,
+        logout,
+        loading,
+        techList,
+        setTechList,
+      }}
     >
       {children}
     </UserContext.Provider>

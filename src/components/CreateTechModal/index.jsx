@@ -5,13 +5,10 @@ import { useForm } from "react-hook-form";
 import { Input } from "../Input";
 import { Select } from "../Select";
 import { Option } from "../Select/Option";
-import { UserContext } from "../../providers/UserContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TechFormSchema } from "./TechFormSchema";
 export const CreateTechModal = () => {
-  const { setIsTechModalOpen, addTech, setTechList, techList } =
-    useContext(TechContext);
-  const { user } = useContext(UserContext);
+  const { setIsTechModalOpen, addTech } = useContext(TechContext);
 
   const {
     register,
@@ -22,7 +19,6 @@ export const CreateTechModal = () => {
   });
   const submit = (formData) => {
     addTech(formData);
-    //adicionou uma tecnologia (objeto) no estado techList
     setIsTechModalOpen(false);
   };
   return (
@@ -40,8 +36,9 @@ export const CreateTechModal = () => {
               type={"text"}
               placeholder={"Material UI"}
               {...register("title")}
+              error={errors.title}
             />
-            <Select {...register("status")}>
+            <Select error={errors.status} {...register("status")}>
               <Option id={"Iniciante"} label={"Iniciante"} />
               <Option id={"Intermediário"} label={"Intermediário"} />
               <Option id={"Avançado"} label={"Avançado"} />

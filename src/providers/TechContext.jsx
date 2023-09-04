@@ -58,30 +58,34 @@ export const TechProvider = ({ children }) => {
 
   const selectEditingTech = (tech) => {
     setIsEditModalOpen(true);
-    setEditingTech(tech)
-   
+    setEditingTech(tech);
   };
 
   const editTech = async (formData) => {
-    const token = localStorage.getItem('@TOKEN')
+    const token = localStorage.getItem("@TOKEN");
     try {
-        const {data} = await api.put(`/users/techs/${editingTech.id}`, formData, {
+      const { data } = await api.put(
+        `/users/techs/${editingTech.id}`,
+        formData,
+        {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-        newTech = techList.map(tech => {
-          if(tech.id === editingTech.id) {
-            return data
-          } else {
-            return tech
-          }
-        })
-        setTechList(data)
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const newTech = techList.map((tech) => {
+        if (tech.id === editingTech.id) {
+          return data;
+        } else {
+          return tech;
+        }
+      });
+      setTechList(newTech);
+      setEditingTech(null);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <TechContext.Provider
@@ -97,7 +101,7 @@ export const TechProvider = ({ children }) => {
         editTech,
         setEditingTech,
         editingTech,
-        selectEditingTech
+        selectEditingTech,
       }}
     >
       {children}

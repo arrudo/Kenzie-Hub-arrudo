@@ -41,7 +41,6 @@ export const DashboardPage = () => {
       </section>
       {isTechModalOpen ? <CreateTechModal /> : null}
       {isEditModalOpen ? <EditTechModal /> : null}
-      
     </div>
   );
 };
