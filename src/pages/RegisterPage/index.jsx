@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Formulary } from "../../components/Formulary";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
@@ -6,15 +6,12 @@ import styles from "./style.module.scss";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { RegisterSchema } from "../../components/Formulary/formScheme";
-import toast, { Toaster } from "react-hot-toast";
 import { Select } from "../../components/Select";
-import { api } from "../../services/api";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
 import { Option } from "../../components/Select/Option";
 
 export const RegisterPage = () => {
-  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -94,7 +91,7 @@ export const RegisterPage = () => {
               <Option label={"Selecione seu módulo"} value={""} />
               <Option
                 label={"Primeiro Módulo"}
-                value={"Primeiro módulo (Introdução ao Frontend_"}
+                value={"Primeiro módulo (Introdução ao Frontend"}
               />
               <Option
                 label={"Segundo Módulo"}
