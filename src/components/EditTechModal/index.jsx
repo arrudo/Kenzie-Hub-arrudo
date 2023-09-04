@@ -10,17 +10,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { EditFormSchema } from "./EditFormScheme";
 export const EditTechModal = () => {
   const { setIsEditModalOpen, editTech, setTechList, techList, editingTech, setEditingTech } = useContext(TechContext);
-  const { user } = useContext(UserContext);
 
   const { register, handleSubmit, formState: {errors},} = useForm({
     values: {
-        title: editingTech.title,
-        status: editingTech.content,
+      title: editingTech.title,
+      status: editingTech.content,
       },
     resolver:zodResolver(EditFormSchema)
   });
   const submit = (formData) => {
-    editTech(formData);
+    editTech(formData)
     setIsEditModalOpen(false)
   };
   return (
@@ -38,6 +37,7 @@ export const EditTechModal = () => {
               type={"text"}
               placeholder={"Material UI"}
               {...register("title")}
+              readonly={true}
             />
             <Select {...register("status")}>
               <Option id={"Iniciante"} label={"Iniciante"} />
@@ -45,7 +45,7 @@ export const EditTechModal = () => {
               <Option id={"Avançado"} label={"Avançado"} />
             </Select>
             <div className={styles.button_div}>
-            <button className={styles.submit_button} type="submit">Cadastrar Tecnologia</button>
+            <button className={styles.submit_button} type="submit">Salvar alterações</button>
             </div>
           </form>
           </div>

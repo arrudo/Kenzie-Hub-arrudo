@@ -56,9 +56,32 @@ export const TechProvider = ({ children }) => {
     }
   };
 
-  const editTech = () => {
-    
+  const selectEditingTech = (tech) => {
+    setIsEditModalOpen(true);
+    setEditingTech(tech)
+   
   };
+
+  const editTech = async (formData) => {
+    const token = localStorage.getItem('@TOKEN')
+    try {
+        const {data} = await api.put(`/users/techs/${editingTech.id}`, formData, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        newTech = techList.map(tech => {
+          if(tech.id === editingTech.id) {
+            return data
+          } else {
+            return tech
+          }
+        })
+        setTechList(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <TechContext.Provider
@@ -72,6 +95,9 @@ export const TechProvider = ({ children }) => {
         isEditModalOpen,
         setIsEditModalOpen,
         editTech,
+        setEditingTech,
+        editingTech,
+        selectEditingTech
       }}
     >
       {children}
