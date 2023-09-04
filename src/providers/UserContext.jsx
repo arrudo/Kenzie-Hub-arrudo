@@ -11,6 +11,9 @@ export const UserProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [techList, setTechList] = useState([]);
+
+  
 
   const loginUser = async (formData) => {
     try {
@@ -77,9 +80,11 @@ export const UserProvider = ({ children }) => {
     loadUser();
   }, []);
 
+  
+
   return (
     <UserContext.Provider
-      value={{ user, setUser, loginUser, registerUser, logout, loading }}
+      value={{ user, setUser, loginUser, registerUser, logout, loading, techList, setTechList }}
     >
       {children}
     </UserContext.Provider>

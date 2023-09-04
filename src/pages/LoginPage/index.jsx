@@ -4,9 +4,9 @@ import { Input } from "../../components/Input";
 import { Header } from "../../components/Header";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginSchema } from "../../formScheme";
+import { LoginSchema } from "../../components/Formulary/formScheme";
 import styles from "./style.module.scss";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
 
 export const LoginPage = () => {

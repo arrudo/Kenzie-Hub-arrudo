@@ -1,0 +1,38 @@
+.tech_container{
+    background-color: var(--color-gray-3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px;
+    border-radius: var(--radius-3);
+}
+.tech_card{
+   display: flex;
+   justify-content: space-between;
+   background-color: var(--color-gray-4);
+   height: 50px;
+   align-items: center;
+   padding: 13px 22px;
+   border-radius: var(--radius-3);
+
+}
+.tech_aside{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p{
+        color: var(--color-gray-1);
+        font-size: var(--font-size-1);
+    }
+}
+.tech_button{
+    background-color: var(--color-gray-4);
+    border: none;
+    cursor: pointer;
+    img{
+        width: 1.375rem;
+    }
+    img:hover{
+        fill: var(--color-gray-3);
+    }
+}

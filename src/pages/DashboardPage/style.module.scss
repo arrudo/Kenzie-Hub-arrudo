@@ -12,8 +12,8 @@
   text-decoration: none;
   color: var(--color-gray-0);
   background-color: var(--color-gray-3);
-  padding: 16px;
-  font-size: var(--font-size-3);
+  padding: 15px 25px;
+  font-size: var(--font-size-2);
   border-radius: var(--radius-3);
   transition: var(--animation-duration);
   border: none;
@@ -45,6 +45,30 @@
 }
 .user__course {
   color: var(--color-gray-1);
+}
+.add_button{
+  cursor: pointer;
+  font-size: 1.8rem;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-gray-3);
+  color: var(--color-gray-0);
+  border: none;
+  border-radius: var(--radius-3);
+  font-weight: var(--font-weight-2);
+  transition: var(--animation-duration);
+}
+.add_button:hover{
+  background-color: var(--color-gray-2);
+}
+.tech_heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 @media (max-width: 700px) {
   .main__section {

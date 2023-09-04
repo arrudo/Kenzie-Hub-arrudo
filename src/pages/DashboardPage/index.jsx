@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Header } from "../../components/Header";
 import styles from "./style.module.scss";
 import { UserContext } from "../../providers/UserContext";
+import { TechList } from "../../components/TechList";
+import { TechContext } from "../../providers/TechContext";
+import { CreateTechModal } from "../../components/CreateTechModal";
 
 export const DashboardPage = () => {
   const { user, logout } = useContext(UserContext);
-
+  const {techlist} = useContext(TechContext)
+  const { isTechModalOpen, setIsTechModalOpen } = useContext(TechContext);
   return (
     <div className={styles.dashboard__container}>
       <Header inDashboard={true} hasButton={true}>
@@ -18,11 +22,18 @@ export const DashboardPage = () => {
         <p className={styles.user__course}>{user.course_module}</p>
       </section>
       <section className={styles.second_section}>
-        <h1>Que pena! Estamos em desenvolvimento :(</h1>
-        <p>
-          Nossa aplicação está em desenvolvimento, em breve teremos novidades
-        </p>
+        <div className={styles.tech_heading}>
+          <p>Tecnologias</p>
+          <button
+            onClick={() => setIsTechModalOpen(true)}
+            className={styles.add_button}
+          >
+            +
+          </button>
+        </div>
+        <TechList/>
       </section>
+      {isTechModalOpen ? <CreateTechModal /> : null}
     </div>
   );
 };

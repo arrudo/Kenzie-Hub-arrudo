@@ -5,12 +5,13 @@ import { Input } from "../../components/Input";
 import styles from "./style.module.scss";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { RegisterSchema } from "../../formScheme";
+import { RegisterSchema } from "../../components/Formulary/formScheme";
 import toast, { Toaster } from "react-hot-toast";
 import { Select } from "../../components/Select";
 import { api } from "../../services/api";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
+import { Option } from "../../components/Select/Option";
 
 export const RegisterPage = () => {
   const navigate = useNavigate();
@@ -86,9 +87,28 @@ export const RegisterPage = () => {
               error={errors.contact}
             />
             <Select
+              label={"Selecionar módulo"}
               {...register("course_module")}
               error={errors.course_module}
-            />
+            >
+              <Option label={"Selecione seu módulo"} value={""} />
+              <Option
+                label={"Primeiro Módulo"}
+                value={"Primeiro módulo (Introdução ao Frontend_"}
+              />
+              <Option
+                label={"Segundo Módulo"}
+                value={"Segundo módulo (Frontend Avançado)"}
+              />
+              <Option
+                label={"Terceiro Módulo"}
+                value={"Terceiro módulo (Introdução ao Backend)"}
+              />
+              <Option
+                label={"Quarto Módulo"}
+                value={"Quarto módulo (Backend Avançado)"}
+              />
+            </Select>
             <button type="submit" className={styles.register__submit_button}>
               Cadastre-se
             </button>
