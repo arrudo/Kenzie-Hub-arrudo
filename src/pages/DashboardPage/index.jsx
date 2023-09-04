@@ -8,12 +8,9 @@ import { CreateTechModal } from "../../components/CreateTechModal";
 import { EditTechModal } from "../../components/EditTechModal";
 
 export const DashboardPage = () => {
-  const { user, logout } = useContext(UserContext);
-  const { techList } = useContext(TechContext);
+  const { user, logout, techList } = useContext(UserContext);
   const { isTechModalOpen, setIsTechModalOpen, isEditModalOpen } =
     useContext(TechContext);
-
-  const userTechs = user.techs;
 
   return (
     <div className={styles.dashboard__container}>
@@ -36,7 +33,7 @@ export const DashboardPage = () => {
             +
           </button>
         </div>
-        {techList.length > 0 ? <TechList userTechs={userTechs} /> : null}
+        {techList.length > 0 ? <TechList /> : null}
       </section>
       {isTechModalOpen ? <CreateTechModal /> : null}
       {isEditModalOpen ? <EditTechModal /> : null}

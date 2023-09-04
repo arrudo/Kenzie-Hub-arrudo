@@ -89,8 +89,6 @@ export const TechProvider = ({ children }) => {
   return (
     <TechContext.Provider
       value={{
-        techList,
-        setTechList,
         setIsTechModalOpen,
         isTechModalOpen,
         addTech,

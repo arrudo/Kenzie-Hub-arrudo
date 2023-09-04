@@ -18,6 +18,7 @@ export const UserProvider = ({ children }) => {
       const { data } = await api.post("/sessions", formData);
       localStorage.setItem("@TOKEN", data.token);
       setUser(data.user);
+      setTechList(data.user.techs)
       navigate("/dashboard");
     } catch (error) {
       toast.error("Ops! Algo deu errado", {
@@ -71,6 +72,8 @@ export const UserProvider = ({ children }) => {
             },
           });
           setUser(data);
+          console.log(data)
+          setTechList(data.techs)
           navigate("/dashboard");
         } catch (error) {
           console.log(error);

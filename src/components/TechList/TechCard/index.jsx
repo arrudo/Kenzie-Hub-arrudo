@@ -3,8 +3,8 @@ import editIcon from "../../../assets/Pencil.svg";
 import styles from "./style.module.scss";
 import { TechContext } from "../../../providers/TechContext";
 import { useContext } from "react";
-export const TechCard = ({tech}) => {
-  const { deleteTech, selectEditingTech } = useContext(TechContext)
+export const TechCard = ({ tech }) => {
+  const { deleteTech, selectEditingTech } = useContext(TechContext);
 
   return (
     <li className={styles.tech_card} key={tech.id}>
