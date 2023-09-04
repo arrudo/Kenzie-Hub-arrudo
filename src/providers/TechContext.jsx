@@ -6,6 +6,8 @@ export const TechContext = createContext({});
 export const TechProvider = ({ children }) => {
   const { techList, setTechList } = useContext(UserContext);
   const [isTechModalOpen, setIsTechModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [editingTech, setEditingTech] = useState(null);
 
   useEffect(() => {
     const getTechList = async () => {
@@ -33,7 +35,6 @@ export const TechProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(data);
       setTechList([...techList, data]);
     } catch (error) {
       console.log(error);
@@ -55,6 +56,10 @@ export const TechProvider = ({ children }) => {
     }
   };
 
+  const editTech = () => {
+    
+  };
+
   return (
     <TechContext.Provider
       value={{
@@ -64,6 +69,9 @@ export const TechProvider = ({ children }) => {
         isTechModalOpen,
         addTech,
         deleteTech,
+        isEditModalOpen,
+        setIsEditModalOpen,
+        editTech,
       }}
     >
       {children}

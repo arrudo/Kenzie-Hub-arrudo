@@ -9,16 +9,21 @@ import { UserContext } from "../../providers/UserContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TechFormSchema } from "./TechFormSchema";
 export const CreateTechModal = () => {
-  const { setIsTechModalOpen, addTech, setTechList, techList } = useContext(TechContext);
+  const { setIsTechModalOpen, addTech, setTechList, techList } =
+    useContext(TechContext);
   const { user } = useContext(UserContext);
 
-  const { register, handleSubmit, formState: {errors},} = useForm({
-    resolver:zodResolver(TechFormSchema)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(TechFormSchema),
   });
   const submit = (formData) => {
     addTech(formData);
     //adicionou uma tecnologia (objeto) no estado techList
-    setIsTechModalOpen(false)
+    setIsTechModalOpen(false);
   };
   return (
     <div className={styles.modalOverlay}>
@@ -26,8 +31,8 @@ export const CreateTechModal = () => {
         <header>
           <h3>Cadastrar tecnologia</h3>
           <button onClick={() => setIsTechModalOpen(false)}>x</button>
-          </header>
-          <div>
+        </header>
+        <div>
           <form onSubmit={handleSubmit(submit)}>
             <Input
               id={"userName"}
@@ -42,11 +47,12 @@ export const CreateTechModal = () => {
               <Option id={"Avançado"} label={"Avançado"} />
             </Select>
             <div className={styles.button_div}>
-            <button className={styles.submit_button} type="submit">Cadastrar Tecnologia</button>
+              <button className={styles.submit_button} type="submit">
+                Cadastrar Tecnologia
+              </button>
             </div>
           </form>
-          </div>
-        
+        </div>
       </div>
     </div>
   );

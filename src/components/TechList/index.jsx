@@ -6,21 +6,21 @@ import styles from './style.module.scss'
 import { TechContext } from "../../providers/TechContext";
 export const TechList = () => {
   const { user } = useContext(UserContext) || {user: []};
-  const {editTech, deleteTech} = useContext(TechContext)
+  const {editTech, deleteTech, setIsEditModalOpen} = useContext(TechContext)
   const userTechs = user.techs
   return (
     <ul className={styles.tech_container}>
         
        {userTechs.map(tech => (
         <li className={styles.tech_card} key={tech.id}>
-            <p>{tech.title}</p>
+            <h2>{tech.title}</h2>
             <div className={styles.tech_aside}>
                 <p>{tech.status}</p>
-                <button className={styles.tech_button} onClick={() => editTech()}>
-                    <img src={editIcon} alt="" />
+                <button className={styles.tech_button} onClick={() => setIsEditModalOpen(true)}>
+                    <img src={editIcon} alt="Ícone de lapiz" />
                 </button>
                 <button className={styles.tech_button} onClick={() => deleteTech(tech.id)}>
-                    <img src={trashIcon} alt="" />
+                    <img src={trashIcon} alt="Ícone de lixeira" />
                 </button>
             </div>
         </li>

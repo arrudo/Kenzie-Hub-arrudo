@@ -5,11 +5,17 @@ import { UserContext } from "../../providers/UserContext";
 import { TechList } from "../../components/TechList";
 import { TechContext } from "../../providers/TechContext";
 import { CreateTechModal } from "../../components/CreateTechModal";
+import { EditTechModal } from "../../components/EditTechModal";
 
 export const DashboardPage = () => {
   const { user, logout } = useContext(UserContext);
-  const {techlist} = useContext(TechContext)
-  const { isTechModalOpen, setIsTechModalOpen } = useContext(TechContext);
+  const { techlist } = useContext(TechContext);
+  const {
+    isTechModalOpen,
+    setIsTechModalOpen,
+    isEditModalOpen,
+    setIsEditModalOpen,
+  } = useContext(TechContext);
   return (
     <div className={styles.dashboard__container}>
       <Header inDashboard={true} hasButton={true}>
@@ -31,9 +37,11 @@ export const DashboardPage = () => {
             +
           </button>
         </div>
-        <TechList/>
+        <TechList />
       </section>
       {isTechModalOpen ? <CreateTechModal /> : null}
+      {isEditModalOpen ? <EditTechModal /> : null}
+      
     </div>
   );
 };

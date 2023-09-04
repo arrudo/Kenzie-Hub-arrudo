@@ -61,10 +61,16 @@ border-radius: var(--radius-1);
     border-radius: var(--radius-3);
     padding: 20px;
     border: none;
-    width: 360px;
+    width: 90%;
     transition: var(--animation-duration);
     cursor: pointer;
 }
 .submit_button:hover{
     background-color: var(--color-primary-focus);
+}
+
+@media (max-width: 700px) {
+  .modalBox{
+    width: 90%;
+  }
 }
