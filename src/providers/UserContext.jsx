@@ -33,7 +33,13 @@ export const UserProvider = ({ children }) => {
   const registerUser = async (formData) => {
     try {
       const { data } = await api.post("/users", formData);
-      toast.success("Conta criada com sucesso!");
+      toast.success("Conta criada com sucesso!", {
+        style: {
+          borderRadius: "6px",
+          background: "#333",
+          color: "#fff",
+        }
+      });
       navigate("/");
     } catch (error) {
       toast.error(error.response.data.message, {
