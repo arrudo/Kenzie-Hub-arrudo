@@ -1,8 +1,5 @@
 # Kenzie-Hub
 
-Projeto em React com um CRUD completo de uma API, contendo um formulário real de cadastro/login, e funcionalidades de criar listas, editando e excluindo itens.
-
-
 Tecnologias utilizadas:
 
 - Javascript
